@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+}
+
+// MIXINS
+@mixin nav-setting {
+
+    .logo {
+        font-family: Lavanderia, sans-serif;
+        font-size: 40.99px;
+        width: 200px;
+        height: auto;
+
+        h1 {
+            color: #000000;
+
+            span {
+                color: #ba4562;
+            }
+        }
+    }
+
+    .nav {
+        width: 550px;
+        float: right;
+    }
+
+    ul {
+        width: 550px;
+        display: flex;
+
+        li {
+            margin-right: 38px;
+            display: flex;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+                color: #454545;
+                font-size: 16.99px;
+                border-bottom: 2px solid transparent;
+                transition: 0.3s;                
+            }
+            a:hover{
+                border-bottom: 2px solid #de6d6e;
+                transition-timing-function: ease-in-out;                
+            }
+
+            .btn {
+                width: 87px;
+                height: 27px;
+                border-radius: 3px;
+                border: none;
+                background: #de6d6e;
+                cursor: pointer;
+                color: #fff;
+                font-size: 16.99px;
+                padding: 0;
+                transition: 0.2s;
+
+                span {
+                    margin-right: 7px;
+                }
+            }
+            .btn:hover{
+                background: #b84a4b;
+                transition-timing-function: ease-in-out;
+            }
+        }
+    }
+}
+@mixin section-one {
+    .first-section {
+        height: auto;
+
+        .wrapper {
+            width: 100%;
+            height: auto;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(to bottom, #e9e9e9, #ffffff) 100% 20%;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            height: auto;
+            text-align: center;
+
+            .title {
+                padding-top: 65px;
+                font-family: sans-serif;
+
+                h2 {
+                    text-align: center;
+                    font-size: 35px;
+                    margin-bottom: 2%;
+                }
+
+                p {
+                    font-size: 17px;
+                }
+            }
+        }
+
+        .flex-icons {
+            padding-top: 85px;
+            display: flex;
+            justify-content: space-around;
+            height: auto;
+        }
+
+        .round {
+            width: 179px;
+            height: 179px;
+            border-radius: 50%;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+
+            .titles {
+                display: inline-block;
+                padding-top: 5px;
+                color: #fff;
+                font-size: 17px;
+            }
+
+            .round-hover {
+                display: none;
+            }
+        }
+
+        .round-one {
+            background: #4eb9f4;
+        }
+
+        .round-two {
+            background: #6fc125;
+        }
+
+        .round-three {
+            background: #ff5649;
+        }
+
+        .round-four {
+            background: #e48f23;
+        }
+
+        .round:hover {
+            cursor: pointer;            
+            transition-timing-function: ease-in-out;
+
+            .round-hover {
+                transition: 0.3s;
+                display: flex;
+                position: absolute;
+                width: 120px;
+                height: 170px;
+                overflow: hidden;
+                color: #fff;
+                font-size: 12px;
+                text-align: center;
+                align-items: center;                
+            }
+
+            img,
+            .titles {
+                transition: 0.3s;
+                opacity: 0.2;
+            }
+        }
+    }
+}
+@mixin section-two {
+	.second-section{
+		margin-top: 30px;
+	}
+    .card {
+    	margin-bottom: 80px;
+        display: flex;
+
+        .description {
+        	margin-left: 2%;
+            h3 {
+                display: inline-block;
+                font-size: 27px;
+                font-family: sans-serif;
+                margin-bottom: 1%;
+                color: #404040;
+            }
+
+            p {
+                display: inline-block;
+                font-size: 15px;
+                line-height: 22px;
+                font-family: sans-serif;
+                color: #8b8b8b;
+            }
+        }
+
+    }
+    .cards{
+    	width: 900px;
+    	margin: auto;
+    }
+}
+@mixin footers{
+	.left-footer{
+		float: right;
+		padding-top: 35px;
+
+		h3{
+			font-size: 21px;
+			line-height: 22px;
+			color: #aeaeae;
+			padding-bottom: 20px;
+		}
+		ul{
+            float: right;
+            margin-right: 77px;
+			// margin-left: 100px;
+		}
+		ul:first-child{
+			margin-left: 0px;
+		}
+		li a{
+			text-decoration: none;
+			font-size: 15px;
+			line-height: 22px;
+			color: #8b8b8b;
+		}
+        a:hover{
+            color: #fff;
+            transition: 0.3s;
+        }
+		
+	}
+}
+
+// UNIVERSAL CLASSES
+.container {
+    width: 1024px;
+    margin: 0 auto;
+    height: auto;
+}
+
+// HEADER
+.header {
+    .container-wrap {
+        background: rgba(255, 255, 255, 0.9);
+        height: 89px;
+        width: 100%;
+    }
+
+    .container {
+        @include nav-setting;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 89px;
+    }
+
+    background: url('../images/Header-bg.png') no-repeat;
+    background-size: cover;
+    min-height: 500px;
+
+    .container-title {
+        display: flex;
+        flex-flow: column;
+        padding-top: 275px;
+        height: auto;
+
+        h2 {
+            font-size: 68.99px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 25px;
+            color: #fff;
+        }
+    }
+}
+
+// MAIN
+@include section-one;
+@include section-two;
+
+// FOOTER
+.footer{
+	width: 100%;
+	height: 258px;
+	background: url('../images/footer-bg.png') repeat-x;
+    display: flex;
+	.container{
+		width: 1024px;
+        display: flex;
+	}
+	.left-footer{
+		width: 713px;
+	}
+	.right-footer{
+		width: 310px;
+        height: 80px;
+	}
+	@include footers;
+    .right-footer{
+        height: 100%;
+        overflow: hidden; 
+     p{
+        padding-left: 30px;
+        padding-top: 29px;
+        display: inline-block;
+                color: #8b8b8b;
+                a{
+                    color: #8b8b8b;
+                    text-decoration: none;
+                    transition: 0.3s; 
+                     -ms-transition: 0.3s;
+                }
+                a:hover{
+                    color: #fff;
+                    
+                    transition-timing-function: ease-in-out;
+                }
+            }        
+        ul{
+            float: right;
+            margin-top: 50px;
+            display: flex;
+                      
+            li{
+                margin-left: 25px;
+                width: 52px;
+                height: 52px;
+                background: #696b6a;
+                border-radius: 50%;    
+                text-align: center;                        
+                a{
+                    width: 52px;
+                    height: 52px;
+                    background: #696b6a;
+                    color: #8b8b8b;
+                    text-decoration: none;
+                      display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    transition: 0.3s;
+                }
+                a:hover{
+                    background: #fff;
+                    // transition-duration: 0.3s;
+                    // transition-timing-function: ease-out;  
+                    
+                    transition-timing-function: ease-in-out;          
+                }
+            }
+        }
+    }
+} 
